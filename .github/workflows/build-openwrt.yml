@@ -25,6 +25,10 @@ jobs:
         repository: openwrt/openwrt.git
         ref: openwrt-19.07
       
+      
+    - name: Debugging with tmate
+      uses: mxschmitt/action-tmate@v2
+
     - name: Initialization environment
       run: sudo apt-get install build-essential libncursesw5-dev python unzip ncurses
       
