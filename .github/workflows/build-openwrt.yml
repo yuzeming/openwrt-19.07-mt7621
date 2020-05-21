@@ -22,12 +22,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: openwrt/openwrt.git
+        repository: yuzeming/openwrt.git
         ref: openwrt-19.07
-      
-      
-    - name: Debugging with tmate
-      uses: mxschmitt/action-tmate@v2
 
     - name: Initialization environment
       run: sudo apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
@@ -39,10 +35,10 @@ jobs:
     
     - name: Get config.buildinfo
       run: wget https://downloads.openwrt.org/releases/19.07.3/targets/ramips/mt7621/config.buildinfo -O .config
-    - name: Patch
-      run: |
           
     - name: Make
-      run: make defconfig
+      run: |
+        make defconfig
+        make
  
  
