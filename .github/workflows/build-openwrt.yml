@@ -9,10 +9,6 @@ on:
       branches:
         - master
 
-env:
-  branch: "openwrt-19.07"
-  repo: "https://github.com/openwrt/openwrt.git"
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -26,8 +22,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: $repo
-        ref: $branch
+        repository: openwrt/openwrt.git
+        ref: openwrt-19.07
 
     # Runs a single command using the runners shell
     - name: Make
