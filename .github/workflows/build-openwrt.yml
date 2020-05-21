@@ -26,7 +26,7 @@ jobs:
         ref: openwrt-19.07
       
     - name: Initialization environment
-      run: sudo apt-get install build-essential libncursesw5-dev python unzip
+      run: sudo apt-get install build-essential libncursesw5-dev python unzip ncurses
       
     - name: update feed
       run: |
@@ -34,7 +34,7 @@ jobs:
           ./scripts/feeds install -a
     
     - name: Get config.buildinfo
-      run: wget https://downloads.openwrt.org/releases/19.07.3/targets/ramips/mt7621/config.buildinfo .config
+      run: wget https://downloads.openwrt.org/releases/19.07.3/targets/ramips/mt7621/config.buildinfo -O .config
   
     - name: Make
       run: make
